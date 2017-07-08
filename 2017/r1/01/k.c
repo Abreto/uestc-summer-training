@@ -7,16 +7,12 @@
 
 typedef long long int ll;
 
-#define EPS (1e-8)
-
 ll mag2(ll ox, ll oy)
 {
-    printf("|(%lld,%lld)|=%lld\n", ox, oy, ox*ox + oy*oy);
     return (ox*ox + oy*oy);
 }
 ll det(ll x1, ll y1, ll x2, ll y2)
 {
-    printf("(%lld,%lld)x(%lld,%lld) = %lld\n", x1, y1, x2, y2, x1*y2-x2*y1);
     return (x1*y2-x2*y1);
 }
 int sgn(ll x)
@@ -60,8 +56,6 @@ void graham(void)
         if( !deleted[i] )
             sorted[j++] = i;
     qsort(sorted, tN, sizeof(int), compar_angle);
-    for(i = 0;i < tN;++i)
-        printf("(%lld,%lld)\n", x[sorted[i]], y[sorted[i]]);
     convex[nc][0] = O[nc]; convex[nc][1] = sorted[0];
     np[nc] = 1;
     for(i = 1;i < tN;++i)
@@ -85,7 +79,7 @@ void graham(void)
             }
         }
     for(i = 0;i < tN-1;++i)
-        if( printf("i:%d\n", i) && deto(sorted[i], sorted[0]) )
+        if( /*printf("i:%d\n", i) &&*/ deto(sorted[i], sorted[0]) )
             break;
     if(i == tN-1)
     {
@@ -101,10 +95,10 @@ void graham(void)
         for(j = 1;j < i;++j)
             convex[nc][j] = sorted[i-j];
     }
-    printf("__________\n");
+    /*printf("__________\n");
     for(i = 0;i <= np[nc];++i)
         printf("%lld,%lld\n", x[convex[nc][i]], y[convex[nc][i]]);
-    printf("----------\n");
+    printf("----------\n");*/
 }
 
 void readata(void)
