@@ -154,7 +154,7 @@ public:
     abio &operator<<(const int x) { return write_int(x); }
     abio &operator<<(const long long int x) { return write_ll(x); }
     abio &operator<<(const char *s) { return write_s(s); }
-}io(fopen("f.in","r"));
+}io;
 
 class acmachine
 {
